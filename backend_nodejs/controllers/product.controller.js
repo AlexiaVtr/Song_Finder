@@ -1,4 +1,4 @@
-import {obj,canciones, precio} from '../models/Product.js';
+import {obj,canciones, precio, song} from '../models/Product.js';
 import fetch from "node-fetch";
 
 
@@ -41,21 +41,24 @@ const searchTracks = (requestBand) => {        // Get the information of the ban
 
     obj.total_canciones = resp.resultCount
 
-      const data = resp.results
+      const data = resp.results;
       data.forEach((band, key) =>  {                   // Extract the elements of resp.
 
           if(key <= 24){                               // Prevent Return Exceeding Data Limit.
           obj.albumes.push(band.collectionName);
-          obj.canciones.push(
-          canciones.cancion_id = band.trackId,
-          canciones.nombre_album = band.collectionName,
-          canciones.nombre_tema = band.trackName,
-          canciones.preview_url = band.previewUrl,
-          canciones.fecha_lanzamiento = band.releaseDate,
-          precio.moneda = band.currency,
-          precio.valor = band.trackPrice
-          )
 
+          song.cancion_id = band.trackId
+          song.nombre_album = band.collectionName
+          song.nombre_tema = band.trackName
+          song.preview_url = band.previewUrl
+          song.fecha_lanzamiento = band.releaseDate
+          precio.moneda = band.currency
+          precio.valor = band.trackPrice
+          song.precio = precio
+ //         song.precio.valor = band.trackPrice
+
+//          console.log(song.Precio)
+          obj.canciones.push(song)
           if ((obj.total_canciones -1) == key){        // In this way the response is returned even if the songs are less than the data limit.
 
             obj.albumes = deteleDuplicates(obj.albumes)  // The previous data of the object is replaced.
@@ -82,7 +85,7 @@ export const newRequest = async (req, res) => {
     searchTracks(request)                                 // The data search is performed.
       .then( result => {
         const bandData = result
-        console.log(bandData.total_albumes)
+        console.log(bandData.canciones)
       })
 
 

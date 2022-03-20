@@ -5,13 +5,16 @@ export const precio = {
     moneda: String
 };
 
-export const canciones = [{
+export let canciones = [{
     cancion_id: Number,
     nombre_album: String,
     nombre_tema: String,
     preview_url: String,
     fecha_lanzamiento: String,
-    precio
+    precio: {
+        valor: Number,
+        moneda: String
+    }
 }];
 
 
@@ -22,4 +25,11 @@ export const obj = {
     canciones
 };
 
-
+export const song = {
+    cancion_id: Number,
+    nombre_album: String,
+    nombre_tema: String,
+    preview_url: String,
+    fecha_lanzamiento: String,
+    precio 
+};
