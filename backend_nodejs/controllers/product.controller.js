@@ -9,8 +9,6 @@ const myInit = {                  // To get the data with fetch in the Handler f
     cache: 'default'
 };
 
-let bandInfo = obj;
-
 
 //Functions:
 
@@ -26,8 +24,8 @@ const deleteData = (data) => {            // Delete var data.
 
 const deteleDuplicates = (data) => {          // To detele the duplicates of albums.
        
-  const unique = data.filter((elem, i) => {
-    return data.indexOf(elem) === i;
+  return data.filter((valor, indice) => {
+    return data.indexOf(valor) === indice;
   });
 };
 
@@ -60,7 +58,8 @@ const searchTracks = (requestBand) => {        // Get the information of the ban
 
           if ((obj.total_canciones -1) == key){        // In this way the response is returned even if the songs are less than the data limit.
 
-            obj.albumes = deteleDuplicates(obj.albumes)  // The previous data of the object is replaced.             
+            obj.albumes = deteleDuplicates(obj.albumes)  // The previous data of the object is replaced.
+            obj.total_albumes = obj.albumes.length        // The amount is counted here.  
             resolve(obj)
           } 
           }         
@@ -78,10 +77,13 @@ export const newRequest = async (req, res) => {
     const data = req.body;
     const request = data.groupName;
 
-//    deleteData(bandInfo);                                 // Empty the array.
+//    deleteData(obj);                                 // Empty the array.
 
     searchTracks(request)                                 // The data search is performed.
-      .then( result => {console.log(result)})
+      .then( result => {
+        const bandData = result
+        console.log(bandData.total_albumes)
+      })
 
 
     res.status(200).json({ msg: 'OK' })

@@ -16,7 +16,7 @@ export const canciones = [{
 
 
 export const obj = {
-    total_albumes: String,
+    total_albumes: Number,
     total_canciones: String,
     albumes: [],
     canciones
