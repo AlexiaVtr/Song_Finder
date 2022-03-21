@@ -20,6 +20,6 @@ export const newRequest = async (req, res) => {
 
 
 export const getStatus = async (req, res) => {
-      const json = 'I am running!';
-      return json
+      const response = 'I am running!';
+      return response
 }

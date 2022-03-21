@@ -17,8 +17,8 @@ productCtrl.newRequest(name)
 })
 
 
-//router.post('/search_tracks',cacheInit, productCtrl.newRequest);
-//router.get('/search_tracks', productCtrl.getStatus);
+//router.post('/search_tracks/favorite',cacheInit, productCtrl.newRequestFav);
+router.get('/prueba', productCtrl.getStatus);
 
 
 
