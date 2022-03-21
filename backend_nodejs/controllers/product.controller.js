@@ -2,7 +2,7 @@ import { checkIdSong } from "../middleware/favorite.js";
 import { searchTracks, dataBand } from "../middleware/searchTracks.js";
 import {fav, song} from '../models/Product.js'  // To persist var information.
 
-//Handler:
+//Handlers:
 
 
 export const newRequest = async (req, res) => {

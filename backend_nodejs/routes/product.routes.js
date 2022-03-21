@@ -16,6 +16,6 @@ productCtrl.newRequest(name)
 })
 
 
-router.post('/favoritos',productCtrl.newRequestFav);
+router.post('/favoritos', cacheInit, productCtrl.newRequestFav);
 
 export default router;
