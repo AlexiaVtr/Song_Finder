@@ -9,7 +9,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/search_tracks?name=:id',
+    path: '/search_tracks:id',
     name: 'dashboard-item',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
