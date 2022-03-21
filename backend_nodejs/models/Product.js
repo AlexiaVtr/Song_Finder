@@ -22,7 +22,7 @@ export const obj = {
     total_albumes: Number,
     total_canciones: String,
     albumes: [],
-    canciones
+    canciones: []
 };
 
 export const song = {
@@ -33,3 +33,10 @@ export const song = {
     fecha_lanzamiento: String,
     precio 
 };
+
+export const fav = {
+	nombre_banda: String,
+    cancion_id: Number,
+	usuario : String,
+	ranking : String
+}

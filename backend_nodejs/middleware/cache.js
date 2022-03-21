@@ -1,5 +1,6 @@
 import getExpeditiousCache from 'express-expeditious';
 
+
 const defaultOptions = {
     namespace: 'expresscache',
     defaultTtl: '1 hour',
@@ -8,6 +9,7 @@ const defaultOptions = {
         500: 0
     }
 };
+
 
 const cacheInit = getExpeditiousCache(defaultOptions);
 

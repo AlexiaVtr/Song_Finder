@@ -24,7 +24,7 @@ formElement.addEventListener("submit", (event) => {
         //Enviar la data al backend:
         console.log("Desde el front:",request.groupName)
         fetch(MyHost, {
-            method: 'POST',
+            method: 'GET',
             body: requestJson
         })
 });

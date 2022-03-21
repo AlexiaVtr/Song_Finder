@@ -11,16 +11,11 @@ router.get('/search_tracks',
 const name = req.query.name
 productCtrl.newRequest(name)
     .then( (data) => {
-        console.log(data)
         res.send(data)
     })
 })
 
 
-//router.post('/search_tracks/favorite',cacheInit, productCtrl.newRequestFav);
-router.get('/prueba', productCtrl.getStatus);
-
-
-
+router.post('/favoritos',productCtrl.newRequestFav);
 
 export default router;
