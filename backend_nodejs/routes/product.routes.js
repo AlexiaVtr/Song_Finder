@@ -1,21 +1,26 @@
 import {Router} from 'express';
+import * as productCtrl from '../controllers/product.controller.js';
+import cacheInit from '../middleware/cache.js';
+
 
 const router = Router();
 
 
-import * as productCtrl from '../controllers/product.controller.js';
+router.get('/search_tracks',
+(req, res) => {
+const name = req.query.name
+productCtrl.newRequest(name)
+    .then( (data) => {
+        console.log(data)
+        res.send(data)
+    })
+})
 
-router.post('/search_tracks', productCtrl.newRequest);
-router.get('/search_tracks', productCtrl.getStatus);
 
-//app.get('/transaction', (req,res) => {
-//    res.send('Estoy funcionando!')
-//});
+//router.post('/search_tracks',cacheInit, productCtrl.newRequest);
+//router.get('/search_tracks', productCtrl.getStatus);
 
-//app.post('/search_tracks', (req,res) => {
-//    res.send('yea')
-//    console.log(req.body)
-//});
+
 
 
 export default router;
